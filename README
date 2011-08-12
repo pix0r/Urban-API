@@ -1,0 +1,1 @@
+Simple scraper for Urban slang dictionary, returns a JSON array of item definitions. Results are cached for 48 hrs.
