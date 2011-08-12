@@ -6,10 +6,12 @@ os.chdir(project_dir)
 
 # activate virtualenv
 virtualenv = "env"
-#site_packages = project_dir + "/" + virtualenv + "/lib/python2.6/site-packages"
-#import site
-#site.addsitedir(site_packages)
-#print "Added site dir: " + site_packages
+
+import glob, site
+for dir in glob.glob(virtualenv + "/lib/python*"):
+	site_packages = dir + "/site-packages"
+	print "adding", site_packages
+	site.addsitedir(site_packages)
 
 from api import app
 application = app
