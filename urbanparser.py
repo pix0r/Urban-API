@@ -49,6 +49,9 @@ def parse_definitions(soup):
 			item["example"] = " ".join([str(x) for x in ex_div.contents])
 			item["example"] = clean_string(item["example"])
 
+		if not item["definition"]:
+			continue
+
 		items.append(item)
 	
 	return items
