@@ -4,11 +4,13 @@ from BeautifulSoup import BeautifulSoup
 import urllib
 import json
 import sys
+import filecache
 
 config = {
 		"search_base": "http://www.urbandictionary.com/define.php?term="
 		}
 
+@filecache.filecache(48 * 60 * 60)
 def get_definitions(phrase):
 	url = config["search_base"] + urllib.quote(phrase)
 	response = fetch_page(url)
