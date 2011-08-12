@@ -1,10 +1,17 @@
+#!/usr/bin/env python
+
 from flask import *
 from flaskext.cache import Cache
 from urbanparser import get_definitions
 #import werkzeug.exceptions
 
 app = Flask(__name__)
+app.debug = True
 cache = Cache(app)
+
+@app.route('/')
+def index():
+	return render_template('index.html')
 
 @app.route('/define')
 def define_phrase():
